@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Job Application</title>
+  </head>
+  <input type="checkbox" id="htmlCheckbox" class="input" />
+  <body>
+    <!-- ============================================================
+                        Job Application form 
+    ============================================================-->
+    <section class="section" id="section">
+      <div class="form-container">
+        <div class="form-title"><h1>Application form</h1></div>
+        <form action="submit" class="form" id="submit">
+          <!-- name -->
+          Your Full Name:
+          <input
+            type="text"
+            required
+            class="input"
+            placeholder="e.g. Geoff Barns"
+            id="name"
+          />
+          <!-- email -->
+          <h3>Your Email:</h3>
+          <input
+            type="email"
+            class="input"
+            placeholder="e.g. geoff72@gmail.com"
+            id="email"
+            required
+          />
+          <!-- phone -->
+          Enter Your Cell Number:
+          <input
+            type="tel"
+            pattern="[0-9]{10}"
+            class="input"
+            placeholder="10-digit number"
+            id="phone"
+          />
+          <!-- upload -->
+          Upload Your CV Here:
+          <input
+            type="file"
+            name="cv-upload"
+            id="cv-upload"
+            accept=".pdf,.doc,.docx"
+            required
+            class="input"
+          />
+          <!-- skills -->
+          Choose Your Proficient Skills:
+          <span class="input">
+            <div>
+              <input type="checkbox" id="skillCheckbox" />
+              <label for="htmlCheckbox">HTML</label>
+            </div>
+            <div>
+              <input type="checkbox" id="skillCheckbox" />
+              <label for="cssCheckbox">CSS</label>
+            </div>
+            <div>
+              <input type="checkbox" id="skillCheckbox" />
+              <label for="jsCheckbox">Javascript</label>
+            </div>
+          </span>
+          <!-- job selection -->
+          Select Your Prefered Job:
+          <select id="jobPositionDropdown" required class="input">
+            <option value="">Select Job Position</option>
+            <option value="Web Developer">Web Developer/option></option>
+            <option value="position2">Job Position 2</option>
+            <option value="position3">Job Position 3</option>
+          </select>
+          <!-- cv upload-->
+          Include Your Cover Letter in the Space Below:
+          <textarea
+            rows="4"
+            class="input text-area"
+            maxlength="600"
+            placeholder="Write something..."
+            id="message"
+            required
+          ></textarea>
+          <!-- submit -->
+          <button class="submit btn">Submit</button>
+        </form>
+      </div>
+    </section>
+  </body>
+  <script src="./app.js"></script>
+</html>

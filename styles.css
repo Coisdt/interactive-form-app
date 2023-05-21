@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.section {
+  padding-top: rem;
+}
+
+.form-container {
+  display: grid;
+  gap: 25px;
+}
+
+.form-title {
+  display: grid;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+::placeholder {
+  color: grey;
+}
+.form {
+  display: grid;
+  gap: 12px;
+  width: 600px;
+  justify-self: center;
+}
+
+.input {
+  padding: 10px;
+  height: auto;
+  border: 0.3px solid;
+  outline: none;
+  font-size: 16px;
+}
+
+/* prevent outline from darkening so that color can show while typing */
+.input:focus{
+ outline: none;
+}
+.email{
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  width: 100%;
+}
+
+.checkbox-input {
+  border: 0.1px solid;
+  display: grid;
+  height: 6rem;
+}
+
+.text-area {
+  height: 150px;
+}
+
+.btn {
+  display: grid;
+  width: 50%;
+  place-content: center;
+  justify-self: center;
+  height: 2rem;
+  font-size: 16px;
+}
