@@ -10,7 +10,6 @@
   --approved-clr: #00ffc5;
   --denied-clr: #d55672;
   --special-clr: rgb(158, 0, 158);
-  
 }
 
 .main-page {
@@ -55,7 +54,9 @@
 }
 
 .navigation-list {
-  width: 80%;
+  display: grid;
+  width: 100%;
+  /* justify-self: center; */
 }
 
 .navigation-list ul {
@@ -63,6 +64,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   list-style: none;
   background-color: white;
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .navigation-list ul li {
@@ -72,13 +75,17 @@
   color: rgb(107, 107, 107);
 }
 
+.navigation-list ul .checkout {
+  color: var(--special-clr);
+}
+/* 
 .navigation-list ul li:hover {
   color: var(--special-clr);
-}
+} */
 
-.navigation-list ul li:active{
+/* .navigation-list ul li:active {
   color: var(--special-clr);
-}
+} */
 
 .cart {
   font-size: 40px;
@@ -86,6 +93,9 @@
   background-color: white;
 }
 
+.cart:hover {
+  color: var(--special-clr);
+}
 /* =================
 checkout section
 ==================== */
@@ -106,7 +116,7 @@ personal information
   /* display: flex; */
   background-color: red;
   width: 100%;
-  padding: 10px;
+  padding: 20px;
 }
 
 .form {
@@ -190,13 +200,13 @@ delivery info
 
 .price-blocks-div {
   display: flex;
-  /* grid-template-columns: 1fr 1fr; */
   height: 100%;
-  gap: 25px;
+  gap: 30px;
   background-color: rgb(233, 233, 233);
 }
 
-.price-block {
+.price-block-1,
+.price-block-2 {
   display: grid;
   background-color: white;
   width: 100%;
@@ -204,31 +214,28 @@ delivery info
   align-items: center;
   border: 3px solid grey;
   border-radius: 5px;
-}
-.price-block:hover {
-  color: var(--special-clr);
-  border: 3px solid var(--special-clr);
-}
-
-.active{
-  color: white;
-  background-color: var(--special-clr);
-  border: 3px solid var(--special-clr);
-}
-
-.price-block h4,
-.price-block h2 {
-  display: grid;
-  font-size: 25px;
-  background-color: white;
-  padding: 10px;
   justify-content: center;
   align-items: center;
+  height: 130px;
 }
 
-.price-block h2 {
-  height: 100px;
-  font-size: 45px;
+.price-block-1 h4,
+.price-block-1 h2,
+.price-block-2 h4,
+.price-block-2 h2 {
+  background-color: white;
+  justify-self: center;
+}
+
+.price-block-1:hover,
+.price-block-2:hover,
+.price-block-1:hover h2,
+.price-block-2:hover h2,
+.price-block-1:hover h4,
+.price-block-2:hover h4 {
+  color: white;
+  border: 3px solid var(--special-clr);
+  background-color: var(--special-clr);
 }
 
 .estimated-info,
@@ -265,8 +272,8 @@ label {
 }
 
 .confirm-order-btn {
-  height: 100px;
-  font-size: 30px;
+  height: 80px;
+  font-size: 25px;
   background-color: var(--special-clr);
   border: 2px solid var(--special-clr);
   border-radius: 20px;
