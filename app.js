@@ -1,25 +1,44 @@
+//  =============================================================
+//                    Job Application form                  //============================================================-->
 
-//  ============================================================
-//                         Job Application form 
-//============================================================-->
+// const name = document.getElementById('name')
+// const emailInput = document.getElementById("email");
+// const phoneInput = document.getElementById("phone");
+// const submit = document.querySelector(".submit");
+// const form = document.querySelector(".form");
+// const allInputs = document.querySelectorAll("input");
+//check validity
+// allInputs.forEach((input) => {
+//   input.addEventListener("input", () => {
+//     if (input.value.trim() === "") {
+//       input.style.border = "4px solid var(--text-clr";
+//     } else if (input.checkValidity()) {
+//       input.style.border = "4px solid var(--approved-clr)";
+//     } else {
+//       input.style.border = "4px solid var(--denied-clr)";
+//     }
+//   });
+// });
 
-const emailInput = document.getElementById("email");
-const phoneInput = document.getElementById("phone");
+// submit btn loading
 
-emailInput.addEventListener("input", () => {
-  if (emailInput.checkValidity()) {
-    emailInput.style = "border: 2px solid green";
-  } else {
-    emailInput.style = "border: 2px solid red";
-  }
-});
+// submit.addEventListener("click", () => {
+//   submit.textContent = "Loading...";
+//   setTimeout(() => {
+//     form.innerHTML = "hey";
+//   }, 2500);
+// });
 
-phoneInput.addEventListener("input", () => {
-  if (phoneInput.checkValidity()) {
-    phoneInput.style.border = "2px solid green";
-  } else if (phoneInput.value === "") {
-    phoneInput.style.border = "1px solid grey";
-  } else {
-    phoneInput.style.border = "2px solid red";
-  }
+const priceBlock = document.querySelectorAll(".price-block");
+
+priceBlock.forEach((block) => {
+  block.addEventListener("click", () => {
+    block.classList.add("active");
+  });
+  block.addEventListener("click", () => {
+    block.classList.remove("active");
+  });
+  // if(block.contains('active')){
+  //   block.classList.remove('active')
+  // }
 });

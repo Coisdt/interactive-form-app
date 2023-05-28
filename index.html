@@ -5,91 +5,134 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Job Application</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Checkout Form</title>
   </head>
-  <input type="checkbox" id="htmlCheckbox" class="input" />
   <body>
-    <!-- ============================================================
-                        Job Application form 
-    ============================================================-->
-    <section class="section" id="section">
-      <div class="form-container">
-        <div class="form-title"><h1>Application form</h1></div>
-        <form action="submit" class="form" id="submit">
-          <!-- name -->
-          Your Full Name:
-          <input
-            type="text"
-            required
-            class="input"
-            placeholder="e.g. Geoff Barns"
-            id="name"
-          />
-          <!-- email -->
-          <h3>Your Email:</h3>
-          <input
-            type="email"
-            class="input"
-            placeholder="e.g. geoff72@gmail.com"
-            id="email"
-            required
-          />
-          <!-- phone -->
-          Enter Your Cell Number:
-          <input
-            type="tel"
-            pattern="[0-9]{10}"
-            class="input"
-            placeholder="10-digit number"
-            id="phone"
-          />
-          <!-- upload -->
-          Upload Your CV Here:
-          <input
-            type="file"
-            name="cv-upload"
-            id="cv-upload"
-            accept=".pdf,.doc,.docx"
-            required
-            class="input"
-          />
-          <!-- skills -->
-          Choose Your Proficient Skills:
-          <span class="input">
-            <div>
-              <input type="checkbox" id="skillCheckbox" />
-              <label for="htmlCheckbox">HTML</label>
+    <section class="main-page">
+      <div class="checkout-center">
+        <!-- navbar -->
+        <div class="nav-bar">
+          <h1>SHOOZ</h1>
+          <div class="navigation-list">
+            <ul>
+              <li>Shopping Cart</li>
+              <li>Checkout</li>
+              <li>Payment</li>
+            </ul>
+          </div>
+          <div class="cart"><i class="cart fa-solid fa-cart-shopping"></i></div>
+        </div>
+
+        <!-- checkout-section -->
+        <div class="checkout-section">
+          <form class="personal-info info-block form">
+            <h1>Personal information</h1>
+            <div class="fullname input-div">
+              <div class="firstName input-div">
+                <h3>First Name:</h3>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  placeholder="Your First Name"
+                />
+              </div>
+              <div class="lastName input-div">
+                <h3>Surname:</h3>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="Your Last Name"
+                />
+              </div>
             </div>
-            <div>
-              <input type="checkbox" id="skillCheckbox" />
-              <label for="cssCheckbox">CSS</label>
+            <div class="email input-div">
+              <h3>Email:</h3>
+              <input
+                type="email"
+                name=""
+                id=""
+                placeholder="Enter your email..."
+              />
             </div>
-            <div>
-              <input type="checkbox" id="skillCheckbox" />
-              <label for="jsCheckbox">Javascript</label>
+            <div class="address input-div">
+              <h3>Delivery Address:</h3>
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Enter the delivery address"
+              />
             </div>
-          </span>
-          <!-- job selection -->
-          Select Your Prefered Job:
-          <select id="jobPositionDropdown" required class="input">
-            <option value="">Select Job Position</option>
-            <option value="Web Developer">Web Developer/option></option>
-            <option value="position2">Job Position 2</option>
-            <option value="position3">Job Position 3</option>
-          </select>
-          <!-- cv upload-->
-          Include Your Cover Letter in the Space Below:
-          <textarea
-            rows="4"
-            class="input text-area"
-            maxlength="600"
-            placeholder="Write something..."
-            id="message"
-            required
-          ></textarea>
-          <!-- submit -->
-          <button class="submit btn">Submit</button>
-        </form>
+            <div class="phonenumber input-div">
+              <h3>Phone Number:</h3>
+              <div class="phone-block">
+                <input
+                  class="areacode"
+                  type="tel"
+                  name=""
+                  id=""
+                  placeholder="+27"
+                />
+                <input
+                  type="tel"
+                  name=""
+                  id=""
+                  placeholder="Enter your number"
+                />
+              </div>
+            </div>
+          </form>
+          <!-- delivery info and checkout btn -->
+          <div class="delivery-info info-block form">
+            <h1>Delivery Information</h1>
+            <h3>Delivery fee</h3>
+            <div class="price-blocks-div">
+              <div class="price-block">
+                <h2 class="price">R200</h2>
+                <h4 class="delivery-time">3-4 weeks</h4>
+              </div>
+              <div class="price-block">
+                <h2 class="price">R600</h2>
+                <h4 class="delivery-time">2-4 days</h4>
+              </div>
+            </div>
+            <div class="estimated-info">
+              <h4>Estimated delivery time: <strong>April 5th</strong></h4>
+              <h4>Every package has a tracking code</h4>
+            </div>
+
+            <div class="subscriptions">
+              <input
+                class="subscription"
+                type="checkbox"
+                id="newsletterCheckbox"
+                name="newsletterCheckbox"
+                value="1"
+              />
+              <label for="newsletterCheckbox"
+                >Subscribe to our newsletter</label
+              >
+              <input
+                class="newaccount"
+                type="checkbox"
+                id="accountCheckbox"
+                name="accountCheckbox"
+                value="1"
+              />
+              <label for="accountCheckbox">Create a new account</label>
+            </div>
+            <button class="confirm-order-btn">Confirm my order</button>
+          </div>
+        </div>
       </div>
     </section>
   </body>
