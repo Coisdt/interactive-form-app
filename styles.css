@@ -22,8 +22,9 @@
 }
 
 .checkout-center {
-  display: block;
-  padding: 50px;
+  display: grid;
+  position: relative;
+  padding: 30px;
   background-color: white;
   width: 100%;
   height: 100%;
@@ -40,7 +41,7 @@
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   width: 100%;
-  height: 6rem;
+  height: 4rem;
   background: white;
   z-index: 1;
   font-size: 22px;
@@ -87,15 +88,116 @@
   color: var(--special-clr);
 } */
 
+/* =================
+        CART
+        ==================== */
 .cart {
   font-size: 40px;
   place-items: center;
   background-color: white;
+  /* background-color: red; */
+  padding: 5px;
 }
 
 .cart:hover {
   color: var(--special-clr);
 }
+
+.cart-modal {
+  display: none;
+  position: absolute;
+  top: 115px;
+  left: 800px;
+  height: fit-content;
+  max-height: 100vh;
+  width: 500px;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid;
+  row-gap: 5px;
+  border-radius: 10px;
+  /* overflow: hidden; */
+}
+
+.show {
+  display: grid;
+}
+
+.cart-modal h1 {
+  display: grid;
+  height: 40px;
+  justify-content: center;
+  font-size: 30px;
+  border-bottom: 2px solid;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* justify-content: space-between; */
+  gap: 20px;
+  width: 100%;
+  border: 2px solid;
+  padding: 5px;
+  height: 100%;
+  font-size: 20px;
+  background-color: lightgrey;
+}
+
+.item-info-container {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+}
+
+.image-container {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+.item img {
+  width: 100%;
+  height: auto;
+  object-fit: scale-down;
+}
+.item-name {
+  height: 30px;
+  font-size: 30px;
+  color: var(--special-clr);
+}
+
+.item-quantity {
+  display: flex;
+  gap: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+  align-items: center;
+  padding: 2px;
+  width: fit-content;
+}
+
+.final-total {
+  display: grid;
+  justify-content: center;
+}
+
+.view-cart-btn {
+  display: grid;
+  width: 50%;
+  height: 3rem;
+  align-items: center;
+  place-self: center;
+  font-size: 20px;
+  background-color: var(--special-clr);
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.view-cart-btn:hover {
+  background-color: purple;
+}
+
 /* =================
 checkout section
 ==================== */
@@ -103,19 +205,23 @@ checkout section
 .checkout-section {
   display: flex;
   background-color: var(--background-clr);
-  gap: 50px;
+  gap: 30px;
   height: calc(100% - 6rem);
   border-radius: 30px;
+  height: 100%;
 }
 
 /* =================
+
 personal information
+
 ==================== */
 
 .info-block {
   /* display: flex; */
   background-color: red;
   width: 100%;
+  height: fit-content;
   padding: 20px;
 }
 
@@ -136,7 +242,7 @@ personal information
 
 .input-div h3 {
   height: fit-content;
-  padding: 10px;
+  padding-bottom: 5px;
   background-color: var(--background-clr);
 }
 
@@ -145,21 +251,37 @@ personal information
   height: fit-content;
   width: 100%;
   font-size: 20px;
-  border: none;
-  color: rgb(107, 107, 107);
+  /* color: rgb(107, 107, 107); */
 }
-
+.address {
+  gap: 10px;
+}
 /* actual input element */
 input {
-  height: 4rem;
-  padding: 10px;
+  border: 2px solid grey;
+  height: 2rem;
+  padding: 5px;
   font-size: 20px;
   width: 100%;
   background-color: white;
+  border-radius: 5px;
 }
 
 input::placeholder {
   color: rgb(177, 177, 177);
+}
+
+.input:focus {
+  outline: 0;
+}
+
+#optionList {
+  color: black;
+  padding: 5px;
+  z-index: 999;
+  display: grid;
+  width: 100px;
+  height: 200px;
 }
 
 .fullname {
@@ -171,13 +293,14 @@ input::placeholder {
 }
 
 .phone-block {
+  gap: 5px;
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
 .areacode {
-  width: 100px;
+  width: 80px;
 }
 
 /* =================
@@ -186,11 +309,21 @@ delivery info
 .delivery-info {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   font-size: 20px;
-  gap: 10px;
+  gap: 20px;
 }
 .delivery-info h2 {
   background-color: rgb(233, 233, 233);
   font-size: 55px;
+}
+
+.price-block-2 strong {
+  background-color: white;
+  color: var(--special-clr);
+}
+
+.price-block-2:hover strong {
+  background: var(--special-clr);
+  color: white;
 }
 
 .delivery-info h3 {
@@ -216,7 +349,7 @@ delivery info
   border-radius: 5px;
   justify-content: center;
   align-items: center;
-  height: 130px;
+  height: 140px;
 }
 
 .price-block-1 h4,
@@ -234,7 +367,7 @@ delivery info
 .price-block-1:hover h4,
 .price-block-2:hover h4 {
   color: white;
-  border: 3px solid var(--special-clr);
+  border: 1px solid var(--special-clr);
   background-color: var(--special-clr);
 }
 
@@ -242,12 +375,13 @@ delivery info
 h4 {
   background-color: rgb(233, 233, 233);
   color: rgb(107, 107, 107);
+  font-size: 22px;
 }
 
-.estimated-info,
-strong {
+.estimated-info strong {
   background-color: rgb(233, 233, 233);
-  color: black;
+  color: var(--special-clr);
+  font-size: 26px;
 }
 
 .subscriptions {
@@ -256,6 +390,7 @@ strong {
   align-items: center;
   background-color: rgb(233, 233, 233);
   color: rgb(107, 107, 107);
+  gap: 5px;
 }
 
 .subscriptions input {
@@ -264,6 +399,10 @@ strong {
 
 label {
   background-color: rgb(233, 233, 233);
+}
+
+.subscriptions .checkbox:hover {
+  border: 2px solid red;
 }
 
 .subscription,
@@ -286,4 +425,10 @@ label {
   color: white;
   background-color: rgb(90, 1, 90);
   border: 4px solid rgb(90, 1, 90);
+}
+
+.terms .links {
+  display: flex;
+  /* grid-template-columns: 1f 1fr; */
+  justify-content: space-between;
 }

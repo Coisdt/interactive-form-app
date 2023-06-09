@@ -15,6 +15,7 @@
     <title>Checkout Form</title>
   </head>
   <body>
+    <a href="./test.html">Test Page</a>
     <section class="main-page">
       <div class="checkout-center">
         <!-- navbar -->
@@ -23,21 +24,81 @@
           <div class="navigation-list">
             <ul>
               <li>Shopping Cart <i class="fa-solid fa-arrow-right"></i></li>
-              <li class="checkout">Checkout <i class="checkout fa-solid fa-arrow-right"></i></li>
+              <li class="checkout">
+                Checkout <i class="checkout fa-solid fa-arrow-right"></i>
+              </li>
               <li>Payment <i class="fa-solid fa-arrow-right"></i></li>
             </ul>
           </div>
           <div class="cart"><i class="cart fa-solid fa-cart-shopping"></i></div>
+          <!-- ==========================
+                          CART
+            =============================== -->
+          <div class="cart-modal">
+            <h1>Your shopping cart:</h1>
+            <!-- item start -->
+            <div class="item">
+              <div class="image-container">
+                <img src="./images/shoe.jpeg" alt="shoe" />
+              </div>
+              <div class="item-info-container">
+                <article class="item-name">Fellies</article>
+                <article class="item-size">Size: 14</article>
+                <article class="item-price">R 950</article>
+                <div class="item-quantity">
+                  <button class="less">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <span class="quantity">2</span>
+                  <button class="more">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+                <article class="item-quanitity-total">Total: R 1 800</article>
+              </div>
+            </div>
+            <!-- item end -->
+            <!-- item start -->
+            <div class="item">
+              <div class="image-container">
+                <img src="./images/shoe2.webp" alt="shoe" />
+              </div>
+              <div class="item-info-container">
+                <article class="item-name">Bronx</article>
+                <article class="item-size">Size: 14</article>
+                <article class="item-price">R 1350</article>
+                <div class="item-quantity">
+                  <button class="less">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <span class="quantity">1</span>
+                  <button class="more">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+                <article class="item-quanitity-total">Total: R 1 350</article>
+              </div>
+            </div>
+            <!-- item end -->
+
+            <div class="final-total">Total in cart: R 3 150</div>
+            <button class="view-cart-btn">View Cart</button>
+          </div>
         </div>
 
-        <!-- checkout-section -->
+        <!-- ===================================================
+  
+  INPUT SECTION
+
+===========================================================-->
         <div class="checkout-section">
           <form class="personal-info info-block form">
             <h1>Personal information</h1>
             <div class="fullname input-div">
-              <div class="firstName input-div">
+              <div class="firstname input-div">
                 <h3>First Name:</h3>
                 <input
+                  class="input"
                   type="text"
                   name="firstName"
                   id="firstName"
@@ -47,6 +108,7 @@
               <div class="lastName input-div">
                 <h3>Surname:</h3>
                 <input
+                  class="input"
                   type="text"
                   name="lastName"
                   id="lastName"
@@ -57,36 +119,75 @@
             <div class="email input-div">
               <h3>Email:</h3>
               <input
+                class="input"
                 type="email"
                 name=""
                 id=""
-                placeholder="Enter your email..."
+                placeholder="Enter your email"
               />
             </div>
             <div class="address input-div">
-              <h3>Delivery Address:</h3>
+              <h3>Delivery Address (RSA only):</h3>
+              <!-- input start -->
               <input
+                class="input"
                 type="text"
                 name=""
                 id=""
-                placeholder="Enter the delivery address"
+                placeholder="Enter your street address"
               />
+              <!-- input end -->
+              <!-- input start -->
+              <input
+                class="input"
+                type="text"
+                name=""
+                id=""
+                placeholder="Enter your suburb"
+              />
+              <!-- input end -->
+              <!-- input start -->
+              <input
+                class="input"
+                type="text"
+                name="city"
+                id="city"
+                placeholder="Enter your city"
+                list="cityOptionsList"
+              />
+              <datalist id="cityOptionsList"> </datalist>
+              <!-- input end -->
+              <!-- input start -->
+              <input
+                class="input"
+                type="text"
+                name="province"
+                id="province"
+                placeholder="Enter your province"
+                list="provOptionsList"
+              />
+              <datalist id="provOptionsList"> </datalist>
+              <!-- input end -->
             </div>
             <div class="phonenumber input-div">
               <h3>Phone Number:</h3>
               <div class="phone-block">
                 <input
-                  class="areacode"
+                  class="areacode input"
                   type="tel"
                   name=""
                   id=""
                   placeholder="+27"
                 />
                 <input
+                  class="input"
                   type="tel"
-                  name=""
-                  id=""
+                  name="phonenumber"
+                  id="phonenumber"
                   placeholder="Enter your number"
+                  required
+                  minlength="10"
+                  maxlength="10"
                 />
               </div>
             </div>
@@ -94,13 +195,15 @@
           <!-- delivery info and checkout btn -->
           <div class="delivery-info info-block form">
             <h1>Delivery Information</h1>
-            <h3>Delivery fee options:</h3>
+            <h3>Delivery Method:</h3>
             <div class="price-blocks-div">
-              <div class="price-block-1">
+              <div class="price-block-1 block">
+                <h4>Standard delivery:</h4>
                 <h2 class="price">R200</h2>
                 <h4 class="delivery-time">3-4 weeks</h4>
               </div>
-              <div class="price-block-2">
+              <div class="price-block-2 block">
+                <h4><strong>Express </strong>delivery:</h4>
                 <h2 class="price">R600</h2>
                 <h4 class="delivery-time">2-4 days</h4>
               </div>
@@ -109,10 +212,10 @@
               <h4>Estimated delivery time: <strong>April 5th</strong></h4>
               <h4>Every package has a tracking code</h4>
             </div>
-
+            <!-- subscriptions -->
             <div class="subscriptions">
               <input
-                class="subscription"
+                class="subscription checkbox"
                 type="checkbox"
                 id="newsletterCheckbox"
                 name="newsletterCheckbox"
@@ -122,7 +225,7 @@
                 >Subscribe to our newsletter</label
               >
               <input
-                class="newaccount"
+                class="newaccount checkbox"
                 type="checkbox"
                 id="accountCheckbox"
                 name="accountCheckbox"
@@ -130,7 +233,16 @@
               />
               <label for="accountCheckbox">Create a new account</label>
             </div>
+            <!-- button -->
             <button class="confirm-order-btn">Confirm my order</button>
+            <!-- Terms -->
+            <div class="terms">
+              <div class="links">
+                <a href="#">Shipping Policy</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Shipping FAQ's</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
