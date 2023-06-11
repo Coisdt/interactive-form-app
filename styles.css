@@ -306,22 +306,53 @@ input::placeholder {
 /* =================
 delivery info
 ==================== */
-.delivery-info {
+.delivery-info-container {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   font-size: 20px;
   gap: 20px;
+  height: 100%;
 }
-.delivery-info h2 {
+
+.price-blocks-div {
+  display: flex;
+  gap: 30px;
+  background-color: rgb(233, 233, 233);
+}
+
+.price-block {
+  display: grid;
+  background-color: white;
+  width: 100%;
+  gap: 0;
+  align-items: center;
+  border: 2px solid grey;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.price-block:hover,
+.price-block:hover h2,
+.price-block:hover h4{
+  color: white;
+  border: 0.1px solid var(--special-clr);
+  background-color: var(--special-clr);
+}
+
+
+.delivery-price {
   background-color: rgb(233, 233, 233);
   font-size: 55px;
 }
 
-.price-block-2 strong {
+.express-delivery strong {
   background-color: white;
   color: var(--special-clr);
 }
 
-.price-block-2:hover strong {
+.express-delivery:hover strong {
   background: var(--special-clr);
   color: white;
 }
@@ -331,45 +362,17 @@ delivery info
   color: rgb(107, 107, 107);
 }
 
-.price-blocks-div {
-  display: flex;
-  height: 100%;
-  gap: 30px;
-  background-color: rgb(233, 233, 233);
-}
-
-.price-block-1,
-.price-block-2 {
-  display: grid;
-  background-color: white;
-  width: 100%;
-  gap: 0;
-  align-items: center;
-  border: 3px solid grey;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  height: 140px;
-}
-
-.price-block-1 h4,
-.price-block-1 h2,
-.price-block-2 h4,
-.price-block-2 h2 {
+.price-block h4,
+.price-block h2 {
   background-color: white;
   justify-self: center;
 }
 
-.price-block-1:hover,
-.price-block-2:hover,
-.price-block-1:hover h2,
-.price-block-2:hover h2,
-.price-block-1:hover h4,
-.price-block-2:hover h4 {
-  color: white;
-  border: 1px solid var(--special-clr);
-  background-color: var(--special-clr);
+.selected {
+ border: 5px solid var(--special-clr)
 }
+
+/* delivery estimated time */
 
 .estimated-info,
 h4 {
@@ -384,6 +387,7 @@ h4 {
   font-size: 26px;
 }
 
+/* subscription info */
 .subscriptions {
   display: grid;
   grid-template-columns: 0.5fr 5fr;

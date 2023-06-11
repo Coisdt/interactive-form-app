@@ -176,7 +176,7 @@
                   class="areacode input"
                   type="tel"
                   name=""
-                  id=""
+                  id="areacode"
                   placeholder="+27"
                 />
                 <input
@@ -192,24 +192,35 @@
               </div>
             </div>
           </form>
-          <!-- delivery info and checkout btn -->
-          <div class="delivery-info info-block form">
+          <!-- ===================================================
+
+  delivery info and checkout btn
+
+===========================================================-->
+          <!-- price blocks -->
+          <div class="delivery-info-container info-block form">
             <h1>Delivery Information</h1>
             <h3>Delivery Method:</h3>
             <div class="price-blocks-div">
-              <div class="price-block-1 block">
-                <h4>Standard delivery:</h4>
-                <h2 class="price">R200</h2>
-                <h4 class="delivery-time">3-4 weeks</h4>
+              <div class="standard-delivery price-block">
+                <h4 class="delivery-title">Standard delivery:</h4>
+                <h2 class="delivery-price">+ R200</h2>
+                <h4 class="delivery-time">3-4 days</h4>
               </div>
-              <div class="price-block-2 block">
-                <h4><strong>Express </strong>delivery:</h4>
-                <h2 class="price">R600</h2>
-                <h4 class="delivery-time">2-4 days</h4>
+              <div class="express-delivery price-block">
+                <h4 class="delivery-title">
+                  <strong>Express </strong>delivery:
+                </h4>
+                <h2 class="delivery-price">+ R350</h2>
+                <h4><strong>Promotion!</strong></h4>
+                <h4 class="delivery-time">Next Day!</h4>
               </div>
             </div>
             <div class="estimated-info">
-              <h4>Estimated delivery time: <strong>April 5th</strong></h4>
+              <h4>
+                Estimated delivery time:
+                <strong class="estimated-time">April 5th</strong>
+              </h4>
               <h4>Every package has a tracking code</h4>
             </div>
             <!-- subscriptions -->
