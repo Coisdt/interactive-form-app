@@ -2,10 +2,108 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Checkout Form</title>
   </head>
   <body>
-    <h1>this is the payment page</h1>
+    <section class="main-page">
+      <div class="checkout-center">
+        <!-- ===========================================================
+
+                        NAV BAR
+
+=============================================================== -->
+        <div class="nav-bar">
+          <h1>SHOOZ</h1>
+          <div class="payment-navigation-list">
+            <ul>
+              <li>Shopping Cart <i class="fa-solid fa-arrow-right"></i></li>
+              <li class="checkout">
+                Checkout <i class="checkout fa-solid fa-arrow-right"></i>
+              </li>
+              <li class="payment">
+                Payment <i class="payment fa-solid fa-arrow-right"></i>
+              </li>
+            </ul>
+          </div>
+          <div class="cart"><i class="cart fa-solid fa-cart-shopping"></i></div>
+          <!-- ========================================================
+
+                          SHOPPING CART
+
+=============================================================== -->
+          <div class="cart-modal">
+            <h1>Your shopping cart:</h1>
+            <!-- item start -->
+            <div class="item">
+              <div class="image-container">
+                <img src="./images/shoe.jpeg" alt="shoe" />
+              </div>
+              <div class="item-info-container">
+                <article class="item-name">Fellies</article>
+                <article class="item-size">Size: 10</article>
+                <article class="item-price">R 950</article>
+                <div class="item-quantity">
+                  <button class="less">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <span class="quantity">2</span>
+                  <button class="more">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+                <article class="item-quanitity-total">Total: R 1 800</article>
+              </div>
+            </div>
+            <!-- item end -->
+            <!-- item start -->
+            <div class="item">
+              <div class="image-container">
+                <img src="./images/shoe2.webp" alt="shoe" />
+              </div>
+              <div class="item-info-container">
+                <article class="item-name">Bronx</article>
+                <article class="item-size">Size: 10</article>
+                <article class="item-price">R 1350</article>
+                <div class="item-quantity">
+                  <button class="less">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <span class="quantity">1</span>
+                  <button class="more">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+                <article class="item-quanitity-total">Total: R 1 350</article>
+              </div>
+            </div>
+            <!-- item end -->
+
+            <div class="final-total">
+              <div class="final-total-text">Total in cart: R</div>
+              <article class="final-total-nr">3 150</article>
+            </div>
+            <button class="view-cart-btn">View Cart</button>
+          </div>
+        </div>
+
+        <!-- ===========================================================
+  
+                       PAYMENT SECTION
+
+================================================================-->
+        <div class="payment-center">
+          <h1>This will be the Payment page</h1>
+        </div>
+    </section>
   </body>
-</html>
+</html> 

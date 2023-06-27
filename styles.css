@@ -79,6 +79,34 @@
 .navigation-list ul .checkout {
   color: var(--special-clr);
 }
+
+.payment-navigation-list {
+  display: grid;
+  width: 100%;
+  /* justify-self: center; */
+}
+
+.payment-navigation-list ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style: none;
+  background-color: white;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.payment-navigation-list ul li {
+  font-size: 25px;
+  justify-self: center;
+  background-color: white;
+  color: rgb(107, 107, 107);
+}
+
+.payment-navigation-list ul .payment {
+  color: var(--special-clr);
+}
+
+
 /* 
 .navigation-list ul li:hover {
   color: var(--special-clr);
@@ -462,4 +490,11 @@ label {
   /* color: blackd; */
   /* color: var(--special-clr); */
   /* text-decoration: none; */
+}
+
+
+.payment-center{
+  display: grid;
+  justify-content: center;
+  font-size: 22px;
 }

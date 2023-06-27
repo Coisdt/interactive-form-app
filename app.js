@@ -38,27 +38,11 @@ function checkAllFilled() {
 checkAllFilled();
 allInputs.forEach((input) => {
   input.addEventListener("input", () => {
+    // move this up
     checkValidity(input);
     checkValidInput(input);
   });
 });
-
-orderBtn.addEventListener("DOMContentLoaded", () => {
-  orderBtn.disabled = true;
-});
-
-// checkAllFilled();
-//   if (input.value.trim() === "") {
-//     input.style.border = "2px solid grey";
-//     isValid = false;
-//   } else if (isInputValid) {
-//     input.style.border = "2px solid green";
-//   } else if (!isInputValid) {
-//     input.style.border = "2px solid red";
-//     isValid = false;
-//   } else {
-//     input.style.border = "2px solid grey";
-//   }
 
 // const form = document.querySelector('form')
 // const firstName = document.getElementById('firstName')
@@ -352,42 +336,6 @@ const updateDate = () => {
 };
 updateDate();
 
-// ===============================================
-//      ALL REQUIRED FIELDS COMPLETED - SHOW/HIDE BTN
-// ===============================================
-
-// function checkInput() {
-// let allInputsFilled = true;
-
-// allInputs.forEach((input) => {
-//   if (input.value.trim() === "") {
-//     allInputsFilled = false;
-//     return;
-//   }
-// });
-
-// if (allInputsFilled) {
-//   orderBtn.disabled = false;
-//   orderBtn.classList.add("confirm-order-btn-active");
-// } else {
-//   orderBtn.disabled = true;
-//   orderBtn.classList.remove("confirm-order-btn-active");
-// }
-
-// shorthand chatGPT
-//   const allInputsFilled = [...allInputs].every(
-//     (input) => input.value.trim() !== ""
-//   );
-
-//   orderBtn.disabled = !allInputsFilled;
-//   orderBtn.classList.toggle("confirm-order-btn-active", allInputsFilled);
-// }
-
-// allInputs.forEach((input) => {
-//   input.addEventListener("input", checkInput);
-// });
-
-// checkInput();
 // ===============================================
 //               Confirm my order btn loading
 // ===============================================
