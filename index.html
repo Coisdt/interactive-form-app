@@ -15,7 +15,6 @@
     <title>Checkout Form</title>
   </head>
   <body>
-    <a href="./test.html">Test Page</a>
     <section class="main-page">
       <div class="checkout-center">
         <!-- navbar -->
@@ -43,7 +42,7 @@
               </div>
               <div class="item-info-container">
                 <article class="item-name">Fellies</article>
-                <article class="item-size">Size: 14</article>
+                <article class="item-size">Size: 10</article>
                 <article class="item-price">R 950</article>
                 <div class="item-quantity">
                   <button class="less">
@@ -65,7 +64,7 @@
               </div>
               <div class="item-info-container">
                 <article class="item-name">Bronx</article>
-                <article class="item-size">Size: 14</article>
+                <article class="item-size">Size: 10</article>
                 <article class="item-price">R 1350</article>
                 <div class="item-quantity">
                   <button class="less">
@@ -97,6 +96,7 @@
             <div class="fullname input-div">
               <div class="firstname input-div">
                 <h3>First Name:</h3>
+                <!-- start -->
                 <input
                   class="input"
                   type="text"
@@ -105,6 +105,8 @@
                   placeholder="Your First Name"
                 />
               </div>
+              <!-- end -->
+              <!-- start -->
               <div class="lastName input-div">
                 <h3>Surname:</h3>
                 <input
@@ -116,16 +118,35 @@
                 />
               </div>
             </div>
+            <!-- end -->
+            <!-- start -->
+            <div class="idNumber input-div">
+              <h3>ID number:</h3>
+              <input
+                class="input"
+                type="tel"
+                name="ID"
+                id="ID"
+                placeholder="Enter your ID number"
+                minlength="13"
+                maxlength="13"
+                pattern="[0-9]*"
+              />
+            </div>
+            <!-- end -->
+            <!-- start -->
             <div class="email input-div">
               <h3>Email:</h3>
               <input
                 class="input"
                 type="email"
                 name=""
-                id=""
+                id="email"
                 placeholder="Enter your email"
               />
             </div>
+            <!-- end -->
+            <!-- start -->
             <div class="address input-div">
               <h3>Delivery Address (RSA only):</h3>
               <!-- input start -->
@@ -133,7 +154,7 @@
                 class="input"
                 type="text"
                 name=""
-                id=""
+                id="address"
                 placeholder="Enter your street address"
               />
               <!-- input end -->
@@ -142,7 +163,7 @@
                 class="input"
                 type="text"
                 name=""
-                id=""
+                id="suburb"
                 placeholder="Enter your suburb"
               />
               <!-- input end -->
@@ -168,8 +189,22 @@
               />
               <datalist id="provOptionsList"> </datalist>
               <!-- input end -->
+              <!-- input start -->
+              <input
+                class="input"
+                type="tel"
+                name="zip"
+                id="zip"
+                placeholder="Enter your zip code"
+                list="zipOptionsList"
+                minlength="4"
+                maxlength="4"
+                pattern="[0-9]*"
+              />
+              <datalist id="zipOptionsList"></datalist>
+              <!-- input end -->
             </div>
-            <div class="phonenumber input-div">
+            <didv class="phonenumber input-div">
               <h3>Phone Number:</h3>
               <div class="phone-block">
                 <input
@@ -178,7 +213,9 @@
                   name=""
                   id="areacode"
                   placeholder="+27"
+                  list="areaCodesList"
                 />
+                <datalist id="areaCodesList"> </datalist>
                 <input
                   class="input"
                   type="tel"
@@ -188,9 +225,10 @@
                   required
                   minlength="10"
                   maxlength="10"
+                  pattern="[0-9]*"
                 />
               </div>
-            </div>
+            </didv>
           </form>
           <!-- ===================================================
 
@@ -205,7 +243,7 @@
               <div class="standard-delivery price-block">
                 <h4 class="delivery-title">Standard delivery:</h4>
                 <h2 class="delivery-price">+ R200</h2>
-                <h4 class="delivery-time">3-4 days</h4>
+                <h4 class="delivery-time">5 days</h4>
               </div>
               <div class="express-delivery price-block">
                 <h4 class="delivery-title">
@@ -218,10 +256,17 @@
             </div>
             <div class="estimated-info">
               <h4>
-                Estimated delivery time:
-                <strong class="estimated-time">April 5th</strong>
+                Final Total Cost:
+                <strong class="final-cost">--</strong>
               </h4>
-              <h4>Every package has a tracking code</h4>
+              <h4>
+                Estimated delivery day:
+                <strong class="estimated-time">--</strong>
+              </h4>
+              <h4>
+                Every package has a tracking code:
+                <a href="#">Track my order</a>
+              </h4>
             </div>
             <!-- subscriptions -->
             <div class="subscriptions">
@@ -245,12 +290,17 @@
               <label for="accountCheckbox">Create a new account</label>
             </div>
             <!-- button -->
-            <button class="confirm-order-btn">Confirm my order</button>
+            <button
+              onclick="window.location.href='./payment.html'"
+              class="confirm-order-btn"
+            >
+              Confirm my order
+            </button>
             <!-- Terms -->
             <div class="terms">
               <div class="links">
                 <a href="#">Shipping Policy</a>
-                <a href="#">Track My Order</a>
+                <a href="#">Track Another Order</a>
                 <a href="#">Shipping FAQ's</a>
               </div>
             </div>

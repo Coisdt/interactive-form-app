@@ -17,7 +17,7 @@
   width: 100vw;
   height: 100vh;
   place-content: center;
-  padding: 100px;
+  padding: 70px;
   background: linear-gradient(to right, purple, rgb(255, 0, 255));
 }
 
@@ -238,6 +238,7 @@ personal information
   font-size: 35px;
   height: fit-content;
   align-self: center;
+  border-bottom: 2px solid var(--special-clr);
 }
 
 .input-div h3 {
@@ -335,12 +336,12 @@ delivery info
 
 .price-block:hover,
 .price-block:hover h2,
-.price-block:hover h4{
+.price-block:hover h4 {
   color: white;
   border: 0.1px solid var(--special-clr);
   background-color: var(--special-clr);
+  cursor: pointer;
 }
-
 
 .delivery-price {
   background-color: rgb(233, 233, 233);
@@ -369,7 +370,7 @@ delivery info
 }
 
 .selected {
- border: 5px solid var(--special-clr)
+  border: 5px solid var(--special-clr);
 }
 
 /* delivery estimated time */
@@ -377,7 +378,7 @@ delivery info
 .estimated-info,
 h4 {
   background-color: rgb(233, 233, 233);
-  color: rgb(107, 107, 107);
+  color: black;
   font-size: 22px;
 }
 
@@ -395,6 +396,8 @@ h4 {
   background-color: rgb(233, 233, 233);
   color: rgb(107, 107, 107);
   gap: 5px;
+  /* width: 100%; */
+  justify-self: start;
 }
 
 .subscriptions input {
@@ -414,25 +417,40 @@ label {
   display: flex;
 }
 
+.confirm-order-link {
+  justify-self: center;
+  pointer-events: none;
+  cursor: pointer;
+}
+
 .confirm-order-btn {
   height: 80px;
   font-size: 25px;
-  background-color: var(--special-clr);
+  background-color: lightgrey;
   border: 2px solid var(--special-clr);
   border-radius: 20px;
-  color: white;
+  color: black;
   width: 300px;
   justify-self: center;
 }
 
-.confirm-order-btn:hover {
+.confirm-order-btn-active {
+  background-color: var(--special-clr);
+  border: 2px solid var(--special-clr);
   color: white;
-  background-color: rgb(90, 1, 90);
-  border: 4px solid rgb(90, 1, 90);
 }
 
-.terms .links {
+.confirm-order-btn:hover {
+  color: white;
+  background-color: rgb(109, 1, 109);
+  border: 4px solid rgb(109, 1, 109);
+}
+
+.links {
   display: flex;
   /* grid-template-columns: 1f 1fr; */
   justify-content: space-between;
+  /* color: blackd; */
+  /* color: var(--special-clr); */
+  /* text-decoration: none; */
 }

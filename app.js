@@ -1,22 +1,27 @@
 // ===============================================
-//                CHECK VALIDITY
+//                VALIDATION
 // ===============================================
-
 const allInputs = document.querySelectorAll(".input");
+
 // check validity
-allInputs.forEach((input) => {
-  input.addEventListener("input", () => {
-    if (input.value.trim() === "") {
-      input.style.border = "2px solid grey";
-    } else if (input.checkValidity()) {
-      input.style.border = "2px solid green";
-    } else if (!input.checkValidity()) {
-      input.style.border = "2px solid red";
-    } else {
-      input.style.border = "2px solid grey";
-    }
+
+function checkValid() {
+  allInputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      const isValid = input.checkValidity();
+      if (input.value.trim() === "") {
+        input.style.border = "2px solid grey";
+      } else if (isValid) {
+        input.style.border = "2px solid green";
+      } else if (!isValid) {
+        input.style.border = "2px solid red";
+      } else {
+        input.style.border = "2px solid grey";
+      }
+    });
   });
-});
+}
+checkValid();
 
 // ===============================================
 //                CITIES OBJECT DATA
@@ -134,14 +139,18 @@ const cityOptionsList = document.querySelector("#cityOptionsList");
 const provOptionsList = document.querySelector("#provOptionsList");
 const provInput = document.querySelector("#province");
 const cityInput = document.querySelector("#city");
-const areaCodeInput = document.querySelector("#areacode");
+const areaCodeOptionsList = document.querySelector("#areaCodesList");
 
 cities.locations.forEach((location) => {
   const option = document.createElement("option");
-  option.value = location.name;
   option.textContent = location.name;
   cityOptionsList.appendChild(option);
 });
+// cities.locations.forEach((location) => {
+//   const option = document.createElement("option");
+//   option.textContent = location.province;
+//   provOptionsList.appendChild(option);
+// });
 
 // ===============================================
 //                MATCH CITY TO PROVINCE
@@ -152,17 +161,20 @@ cityInput.addEventListener("input", (event) => {
   const match = cities.locations.find(
     (location) => location.name === selectedOption
   );
-
   if (match) {
-    provInput.value = match.province;
-    areaCodeInput.value = "+27";
+    const option = document.createElement("option");
+    option.value = match.province;
+    provOptionsList.appendChild(option);
+    const optionNr = document.createElement("option");
+    optionNr.value = "+27";
+    areaCodeOptionsList.appendChild(optionNr);
   } else {
-    return;
+    provOptionsList.innerHTML = "";
   }
 });
 
 // ===============================================
-//                 DELIVERY METHOD clicked remains
+//           DELIVERY METHOD BLOCKS SELCT
 // ===============================================
 
 const blocks = document.querySelectorAll(".price-block");
@@ -171,7 +183,7 @@ const price = document.querySelector(".delivery-price");
 const time = document.querySelector(".delivery-time");
 const blocksDiv = document.querySelector(".price-blocks-div");
 
-blocks.forEach((block) => {
+const checkBlock = blocks.forEach((block) => {
   block.addEventListener("click", () => {
     blocks.forEach((blocknr2) => {
       if (blocknr2 !== block) {
@@ -199,7 +211,7 @@ cartIcon.addEventListener("click", () => {
 // could use mouseover and mouseout for hover
 
 // ===============================================
-//                Estimated delivery time
+//            ESTIMATED DELIVERY TIME
 // ===============================================
 
 const months = [
@@ -223,17 +235,16 @@ let getMonth = (month) => {
 
 const today = new Date();
 let day = today.getDate();
-console.log(day);
 const monthIndex = today.getMonth();
 const monthName = getMonth(monthIndex);
-console.log(monthName);
 
 // final date string
 const currentDateString = `${day}th of ${monthName}`;
 
 // add to innertext
 const currentDate = document.querySelector(".estimated-time");
-currentDate.textContent = currentDateString;
+// currentDate.textContent = currentDateString;
+currentDate.textContent = "--";
 
 // update delivery date
 
@@ -246,12 +257,77 @@ const updateDate = () => {
     currentDate.textContent = updatedDateString;
   });
   standardDel.addEventListener("click", () => {
-    // const nextMonth = monthIndex + 1; *to calc nextmonth*
-    // const monthNextName = getMonth(nextMonth);
-    const standardDays = day + 4;
-    const updatedDateString = `${standardDays}th of ${monthName}`;
-    currentDate.textContent = updatedDateString;
+    const standardDays = day + 5;
     // if statement for when the days reach 30/31 days, called nextmonth
+    if (standardDays > 30) {
+      const dayOverflow = standardDays - 30;
+      const nextMonthName = getMonth(monthIndex + 1);
+      // current bug is that its 30 days hardcoded
+
+      // change the number place name like th, rd, st
+      let placename = "";
+      if (dayOverflow === 1) {
+        placename = "st";
+      } else if (dayOverflow === 2) {
+        placename = "nd";
+      } else if (dayOverflow === 3) {
+        placename = "rd";
+      } else if (dayOverflow === 3) {
+        placename = "th";
+      } else {
+        placename = "st";
+      }
+      return (currentDate.textContent = `${dayOverflow}${placename} of ${nextMonthName}`);
+    }
   });
 };
 updateDate();
+
+// ===============================================
+//                      FINAL COST
+// ===============================================
+
+console.log("coming soon");
+
+// ===============================================
+//      ALL REQUIRED FIELDS COMPLETED - SHOW/HIDE BTN
+// ===============================================
+
+const orderBtn = document.querySelector(".confirm-order-btn");
+
+function checkInput() {
+  let allInputsFilled = true;
+
+  allInputs.forEach((input) => {
+    if (input.value.trim() === "") {
+      allInputsFilled = false;
+      return;
+    }
+  });
+  if (allInputsFilled) {
+    orderBtn.disabled = false;
+    orderBtn.classList.add("confirm-order-btn-active");
+  } else {
+    orderBtn.disabled = true;
+    orderBtn.classList.remove("confirm-order-btn-active");
+  }
+}
+
+allInputs.forEach((input) => {
+  input.addEventListener("input", checkInput);
+});
+
+checkInput();
+// ===============================================
+//               Confirm my order btn loading
+// ===============================================
+
+// const orderBtn = document.querySelector(".confirm-order-btn");
+
+// allInputs.forEach((input) => {
+//   orderBtn.addEventListener("click", () => {
+//     input.checkValidity();
+//   });
+// });
+
+// console.log();
