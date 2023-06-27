@@ -303,6 +303,17 @@ input::placeholder {
 .areacode {
   width: 80px;
 }
+.normalInput {
+  border: 2px solid grey;
+}
+
+.validInput {
+  border: 2px solid green;
+}
+
+.invalidInput {
+  border: 2px solid red;
+}
 
 /* =================
 delivery info
@@ -375,17 +386,15 @@ delivery info
 
 /* delivery estimated time */
 
-.estimated-info,
-h4 {
+.estimated-info {
   background-color: rgb(233, 233, 233);
   color: black;
   font-size: 22px;
 }
 
 .estimated-info strong {
-  background-color: rgb(233, 233, 233);
   color: var(--special-clr);
-  font-size: 26px;
+  font-size: 22px;
 }
 
 /* subscription info */

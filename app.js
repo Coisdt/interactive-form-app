@@ -21,7 +21,21 @@ function checkValid() {
     });
   });
 }
+
 checkValid();
+
+// const form = document.querySelector('form')
+// const firstName = document.getElementById('firstName')
+// const lastName = document.getElementById('lastName')
+// const ID = document.getElementById('ID')
+// const email = document.getElementById('email')
+// const address = document.getElementById('address')
+// const suburb = document.getElementById('suburb')
+// const city = document.getElementById('city')
+// const province = document.getElementById('province')
+// const zip = document.getElementById('zip')
+// const areacode = document.getElementById('areacode')
+// const phonenumber = document.getElementById('phonenumber')
 
 // ===============================================
 //                CITIES OBJECT DATA
@@ -146,11 +160,7 @@ cities.locations.forEach((location) => {
   option.textContent = location.name;
   cityOptionsList.appendChild(option);
 });
-// cities.locations.forEach((location) => {
-//   const option = document.createElement("option");
-//   option.textContent = location.province;
-//   provOptionsList.appendChild(option);
-// });
+
 
 // ===============================================
 //                MATCH CITY TO PROVINCE
@@ -287,7 +297,7 @@ updateDate();
 //                      FINAL COST
 // ===============================================
 
-console.log("coming soon");
+// console.log("coming soon");
 
 // ===============================================
 //      ALL REQUIRED FIELDS COMPLETED - SHOW/HIDE BTN
@@ -296,21 +306,30 @@ console.log("coming soon");
 const orderBtn = document.querySelector(".confirm-order-btn");
 
 function checkInput() {
-  let allInputsFilled = true;
+  // let allInputsFilled = true;
 
-  allInputs.forEach((input) => {
-    if (input.value.trim() === "") {
-      allInputsFilled = false;
-      return;
-    }
-  });
-  if (allInputsFilled) {
-    orderBtn.disabled = false;
-    orderBtn.classList.add("confirm-order-btn-active");
-  } else {
-    orderBtn.disabled = true;
-    orderBtn.classList.remove("confirm-order-btn-active");
-  }
+  // allInputs.forEach((input) => {
+  //   if (input.value.trim() === "") {
+  //     allInputsFilled = false;
+  //     return;
+  //   }
+  // });
+
+  // if (allInputsFilled) {
+  //   orderBtn.disabled = false;
+  //   orderBtn.classList.add("confirm-order-btn-active");
+  // } else {
+  //   orderBtn.disabled = true;
+  //   orderBtn.classList.remove("confirm-order-btn-active");
+  // }
+
+  // shorthand chatGPT
+  const allInputsFilled = [...allInputs].every(
+    (input) => input.value.trim() !== ""
+  );
+
+  orderBtn.disabled = !allInputsFilled;
+  orderBtn.classList.toggle("confirm-order-btn-active", allInputsFilled);
 }
 
 allInputs.forEach((input) => {
