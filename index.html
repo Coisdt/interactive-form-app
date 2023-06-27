@@ -17,7 +17,11 @@
   <body>
     <section class="main-page">
       <div class="checkout-center">
-        <!-- navbar -->
+        <!-- ===========================================================
+
+                        NAV BAR
+
+=============================================================== -->
         <div class="nav-bar">
           <h1>SHOOZ</h1>
           <div class="navigation-list">
@@ -30,9 +34,11 @@
             </ul>
           </div>
           <div class="cart"><i class="cart fa-solid fa-cart-shopping"></i></div>
-          <!-- ==========================
-                          CART
-            =============================== -->
+          <!-- ========================================================
+
+                          SHOPPING CART
+
+=============================================================== -->
           <div class="cart-modal">
             <h1>Your shopping cart:</h1>
             <!-- item start -->
@@ -80,16 +86,19 @@
             </div>
             <!-- item end -->
 
-            <div class="final-total">Total in cart: R 3 150</div>
+            <div class="final-total">
+              <div class="final-total-text">Total in cart: R</div>
+              <article class="final-total-nr">3 150</article>
+            </div>
             <button class="view-cart-btn">View Cart</button>
           </div>
         </div>
 
-        <!-- ===================================================
+        <!-- ===========================================================
   
-  INPUT SECTION
+                         INPUT SECTION
 
-===========================================================-->
+================================================================-->
         <div class="checkout-section">
           <form class="personal-info info-block form">
             <h1>Personal information</h1>
@@ -103,6 +112,7 @@
                   name="firstName"
                   id="firstName"
                   placeholder="Your First Name"
+                  required
                 />
               </div>
               <!-- end -->
@@ -115,6 +125,7 @@
                   name="lastName"
                   id="lastName"
                   placeholder="Your Last Name"
+                  required
                 />
               </div>
             </div>
@@ -131,6 +142,7 @@
                 minlength="13"
                 maxlength="13"
                 pattern="[0-9]*"
+                required
               />
             </div>
             <!-- end -->
@@ -143,6 +155,7 @@
                 name=""
                 id="email"
                 placeholder="Enter your email"
+                required
               />
             </div>
             <!-- end -->
@@ -156,6 +169,7 @@
                 name=""
                 id="address"
                 placeholder="Enter your street address"
+                required
               />
               <!-- input end -->
               <!-- input start -->
@@ -165,29 +179,8 @@
                 name=""
                 id="suburb"
                 placeholder="Enter your suburb"
+                required
               />
-              <!-- input end -->
-              <!-- input start -->
-              <input
-                class="input"
-                type="text"
-                name="city"
-                id="city"
-                placeholder="Enter your city"
-                list="cityOptionsList"
-              />
-              <datalist id="cityOptionsList"> </datalist>
-              <!-- input end -->
-              <!-- input start -->
-              <input
-                class="input"
-                type="text"
-                name="province"
-                id="province"
-                placeholder="Enter your province"
-                list="provOptionsList"
-              />
-              <datalist id="provOptionsList"> </datalist>
               <!-- input end -->
               <!-- input start -->
               <input
@@ -200,8 +193,33 @@
                 minlength="4"
                 maxlength="4"
                 pattern="[0-9]*"
+                required
               />
               <datalist id="zipOptionsList"></datalist>
+              <!-- input end -->
+              <!-- input start -->
+              <input
+                class="input"
+                type="text"
+                name="city"
+                id="city"
+                placeholder="Enter your city"
+                list="cityOptionsList"
+                required
+              />
+              <datalist id="cityOptionsList"> </datalist>
+              <!-- input end -->
+              <!-- input start -->
+              <input
+                class="input"
+                type="text"
+                name="province"
+                id="province"
+                placeholder="Enter your province"
+                list="provOptionsList"
+                required
+              />
+              <datalist id="provOptionsList"> </datalist>
               <!-- input end -->
             </div>
             <didv class="phonenumber input-div">
@@ -214,6 +232,7 @@
                   id="areacode"
                   placeholder="+27"
                   list="areaCodesList"
+                  required
                 />
                 <datalist id="areaCodesList"> </datalist>
                 <input
@@ -226,6 +245,7 @@
                   minlength="10"
                   maxlength="10"
                   pattern="[0-9]*"
+                  required
                 />
               </div>
             </didv>
@@ -256,7 +276,7 @@
             </div>
             <div class="estimated-info">
               <h4>
-                Final Total Cost:
+                Final Total Cost: R
                 <strong class="final-cost">--</strong>
               </h4>
               <h4>
@@ -291,8 +311,9 @@
             </div>
             <!-- button -->
             <button
-              onclick="window.location.href='./payment.html'"
               class="confirm-order-btn"
+              target="_blank"
+              onclick="window.location.href='./payment.html'"
             >
               Confirm my order
             </button>

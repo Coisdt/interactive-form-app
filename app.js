@@ -2,27 +2,63 @@
 //                VALIDATION
 // ===============================================
 const allInputs = document.querySelectorAll(".input");
+const orderBtn = document.querySelector(".confirm-order-btn");
+const form = document.querySelector("form");
 
-// check validity
-
-function checkValid() {
-  allInputs.forEach((input) => {
-    input.addEventListener("input", () => {
-      const isValid = input.checkValidity();
-      if (input.value.trim() === "") {
-        input.style.border = "2px solid grey";
-      } else if (isValid) {
-        input.style.border = "2px solid green";
-      } else if (!isValid) {
-        input.style.border = "2px solid red";
-      } else {
-        input.style.border = "2px solid grey";
-      }
-    });
-  });
+function checkValidity(input) {
+  const isValid = input.checkValidity();
+  // is all inputs valid
+  if (input.value.trim() === "") {
+    input.style.border = "2px solid grey";
+  } else if (isValid) {
+    input.style.border = "2px solid green";
+  } else if (!isValid) {
+    input.style.border = "2px solid red";
+  } else {
+    input.style.border = "2px solid red";
+  }
 }
 
-checkValid();
+function checkValidInput() {
+  const allInputsValid = [...allInputs].every((input) => input.checkValidity());
+
+  orderBtn.disabled = !allInputsValid;
+  orderBtn.classList.toggle("confirm-order-btn-active", allInputsValid);
+}
+// all inputs filled
+function checkAllFilled() {
+  const allInputsFilled = [...allInputs].every(
+    (input) => input.value.trim() !== ""
+  );
+
+  orderBtn.disabled = !allInputsFilled;
+  orderBtn.classList.toggle("confirm-order-btn-active", allInputsFilled);
+}
+
+checkAllFilled();
+allInputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    checkValidity(input);
+    checkValidInput(input);
+  });
+});
+
+orderBtn.addEventListener("DOMContentLoaded", () => {
+  orderBtn.disabled = true;
+});
+
+// checkAllFilled();
+//   if (input.value.trim() === "") {
+//     input.style.border = "2px solid grey";
+//     isValid = false;
+//   } else if (isInputValid) {
+//     input.style.border = "2px solid green";
+//   } else if (!isInputValid) {
+//     input.style.border = "2px solid red";
+//     isValid = false;
+//   } else {
+//     input.style.border = "2px solid grey";
+//   }
 
 // const form = document.querySelector('form')
 // const firstName = document.getElementById('firstName')
@@ -161,7 +197,6 @@ cities.locations.forEach((location) => {
   cityOptionsList.appendChild(option);
 });
 
-
 // ===============================================
 //                MATCH CITY TO PROVINCE
 // ===============================================
@@ -204,6 +239,30 @@ const checkBlock = blocks.forEach((block) => {
   });
 });
 
+// ===============================================
+//                      FINAL COST
+// ===============================================
+
+const finalPrice = () => {
+  const cartFinalCost = 3150;
+  const standardDeliveryCost = 200;
+  const expressDeliveryCost = 350;
+  const finalCost = document.querySelector(".final-cost");
+  // from cart
+  finalCost.textContent = cartFinalCost;
+  // standard
+  const standardDelivery = document.querySelector(".standard-delivery");
+  standardDelivery.addEventListener("click", () => {
+    finalCost.textContent = cartFinalCost + standardDeliveryCost;
+  });
+  // express
+  const expressDelivery = document.querySelector(".express-delivery");
+  expressDelivery.addEventListener("click", () => {
+    finalCost.textContent = cartFinalCost + expressDeliveryCost;
+  });
+};
+
+finalPrice();
 // ===============================================
 //                CART TOGGLE
 // ===============================================
@@ -294,59 +353,41 @@ const updateDate = () => {
 updateDate();
 
 // ===============================================
-//                      FINAL COST
-// ===============================================
-
-// console.log("coming soon");
-
-// ===============================================
 //      ALL REQUIRED FIELDS COMPLETED - SHOW/HIDE BTN
 // ===============================================
 
-const orderBtn = document.querySelector(".confirm-order-btn");
+// function checkInput() {
+// let allInputsFilled = true;
 
-function checkInput() {
-  // let allInputsFilled = true;
+// allInputs.forEach((input) => {
+//   if (input.value.trim() === "") {
+//     allInputsFilled = false;
+//     return;
+//   }
+// });
 
-  // allInputs.forEach((input) => {
-  //   if (input.value.trim() === "") {
-  //     allInputsFilled = false;
-  //     return;
-  //   }
-  // });
+// if (allInputsFilled) {
+//   orderBtn.disabled = false;
+//   orderBtn.classList.add("confirm-order-btn-active");
+// } else {
+//   orderBtn.disabled = true;
+//   orderBtn.classList.remove("confirm-order-btn-active");
+// }
 
-  // if (allInputsFilled) {
-  //   orderBtn.disabled = false;
-  //   orderBtn.classList.add("confirm-order-btn-active");
-  // } else {
-  //   orderBtn.disabled = true;
-  //   orderBtn.classList.remove("confirm-order-btn-active");
-  // }
+// shorthand chatGPT
+//   const allInputsFilled = [...allInputs].every(
+//     (input) => input.value.trim() !== ""
+//   );
 
-  // shorthand chatGPT
-  const allInputsFilled = [...allInputs].every(
-    (input) => input.value.trim() !== ""
-  );
+//   orderBtn.disabled = !allInputsFilled;
+//   orderBtn.classList.toggle("confirm-order-btn-active", allInputsFilled);
+// }
 
-  orderBtn.disabled = !allInputsFilled;
-  orderBtn.classList.toggle("confirm-order-btn-active", allInputsFilled);
-}
+// allInputs.forEach((input) => {
+//   input.addEventListener("input", checkInput);
+// });
 
-allInputs.forEach((input) => {
-  input.addEventListener("input", checkInput);
-});
-
-checkInput();
+// checkInput();
 // ===============================================
 //               Confirm my order btn loading
 // ===============================================
-
-// const orderBtn = document.querySelector(".confirm-order-btn");
-
-// allInputs.forEach((input) => {
-//   orderBtn.addEventListener("click", () => {
-//     input.checkValidity();
-//   });
-// });
-
-// console.log();

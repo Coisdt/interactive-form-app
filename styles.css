@@ -177,7 +177,7 @@
 }
 
 .final-total {
-  display: grid;
+  display: flex;
   justify-content: center;
 }
 
