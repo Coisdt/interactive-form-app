@@ -319,16 +319,14 @@ const updateDate = () => {
 
       // change the number place name like th, rd, st
       let placename = "";
-      if (dayOverflow === 1) {
+      if (dayOverflow === 1 && 21 && dayOverflow === 31) {
         placename = "st";
-      } else if (dayOverflow === 2) {
+      } else if (dayOverflow === 2 && dayOverflow === 22) {
         placename = "nd";
-      } else if (dayOverflow === 3) {
+      } else if (dayOverflow === 3 && dayOverflow === 23) {
         placename = "rd";
-      } else if (dayOverflow === 3) {
-        placename = "th";
       } else {
-        placename = "st";
+        placename = "th";
       }
       return (currentDate.textContent = `${dayOverflow}${placename} of ${nextMonthName}`);
     }
